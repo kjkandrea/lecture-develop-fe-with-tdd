@@ -38,7 +38,9 @@ describe('App.ClickCountView 모듈', () => {
     })
     
     it('updateView를 실행한다', ()=> {
-      // todo 
+      spyOn(view, 'updateView')
+      view.increaseAndUpdateView()
+      expect(view.updateView).toHaveBeenCalled()
     })
   })
 })
