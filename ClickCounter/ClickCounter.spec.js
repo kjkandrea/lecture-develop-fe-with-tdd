@@ -2,7 +2,8 @@ describe('App.ClickCounter', ()=> {
   let counter
 
   it('초기값을 주입하지 않으면 에러를 던진다', () => {
-    // todo 
+    const actual = () => (counter = App.ClickCounter())
+    expect(actual).toThrowError()
   })
 
   beforeEach(()=> (counter = App.ClickCounter()))
