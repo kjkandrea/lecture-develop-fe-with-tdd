@@ -1,10 +1,11 @@
 describe('App.ClickCountView 모듈', () => {
-  let udpateEl, clickCounter, view
+  let updateEl, clickCounter, triggerEl, view
 
   beforeEach(()=> {
     updateEl = document.createElement('span')
-    clickCounter = App.ClickCounter(); 
-    view = App.ClickCountView(clickCounter, updateEl)
+    clickCounter = App.ClickCounter();
+    triggerEl = document.createElement('button')
+    view = App.ClickCountView(clickCounter, {updateEl, triggerEl})
   })
   
   describe('네거티브 테스트', ()=> {
@@ -42,6 +43,8 @@ describe('App.ClickCountView 모듈', () => {
   })
 
   it('클릭 이벤트가 발생하면 increseAndUpdateView를 실행한다', ()=> {
-    // todo 
+    spyOn(view, 'increaseAndUpdateView')
+    triggerEl.click()
+    expect(view.increaseAndUpdateView).toHaveBeenCalled()
   })
 })
