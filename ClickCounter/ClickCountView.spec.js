@@ -10,12 +10,12 @@ describe('App.ClickCountView 모듈', () => {
   
   describe('네거티브 테스트', ()=> {
     it('ClickCounter를 주입하지 않으면 에러를 던진다', ()=> {
-      const actual = () => App.ClickCountView(null, updateEl)
+      const actual = () => App.ClickCountView(null, {updateEl})
       expect(actual).toThrowError(App.ClickCountView.messages.noClickCounter)
     })
 
     it('updateEl를 주입하지 않으면 에러를 던진다', ()=> {
-      const actual = () => App.ClickCountView(clickCounter, null)
+      const actual = () => App.ClickCountView(clickCounter, {triggerEl})
       expect(actual).toThrowError(App.ClickCountView.messages.noUpdateEl)
     })
   })
